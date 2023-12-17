@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Third Hand</title>
+        <link rel="stylesheet" href="./cart.css"></link>
+        <link rel="stylesheet" href="./style.css"></link>
+        <script src="./bootstrap.bundle.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+    <header class="header">
+        <a href="/Index.html" class="logo"> 
+            <img src="./Images/LOGO.png"/>
+        </a>
+        <div class="filters">
+            <a href="#" class="search"> 
+                <img class="lens" src="./Images/search.png">
+                <input type="search" class="search" placeholder="Поиск..."/>  
+            </a>
+        </div>
+        <nav class="navigate">
+            <ul class="menu">
+                <li><a class="link" href="#">Мужчинам</a></li>
+                <li><a class="link" href="#">Женщинам</a></li>
+                <li><a class="link" href="#">Детям</a></li>
+                <li><a class="link" href="#">Трейд-ин</a></li>
+                <li><a class="link" href="#">О нас</a></li>
+            </ul>
+        </nav>
+        <div class="icon">
+            <a href="./cart.html"><img src="./Images/Baglight.png"></a>
+            <a href="./favourite.html"><img src="./Images/heart.png"></a>
+       </div>
+    </header>
+    <main
+    class="main container d-flex flex-grow-1 flex-row justify-content-between py-20"
+>
+    <div class="main__inner col-9">
+        <div class="flex-grow-1 d-flex align-items-stretch px-20">
+            <div
+                class="content flex-grow-1 d-flex flex-column overflow-hidden"
+            >
+                <div class="px-20">
+                    <div class="title text-center mb-20">
+                        <h1>Оформить заказ</h1>
+                    </div>
+                    <form action="#" class="needs-validation">
+                        <div class="row">
+                            <div class="col-md-6 mb-15">
+                                <label for="firstName">Имя</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="firstName"
+                                    placeholder=""
+                                    value=""
+                                    required=""
+                                />
+                                <div class="invalid-feedback">
+                                    Введите корректное имя
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-15">
+                                <label for="phone">Телефон</label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    placeholder=""
+                                    class="form-control tel"
+                                    required
+                                />
+                                <div class="invalid-feedback">
+                                    Введите корректный телефон
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-15">
+                                <label for="order">Заказ на</label>
+                                <select
+                                    class="custom-select d-block w-100"
+                                    id="order"
+                                    required=""
+                                >
+                                    <option value="">
+                                        Выберите...
+                                    </option>
+                                    <option>Сегодня</option>
+                                    <option>Завтра</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Введите значение
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-15">
+                                <label for="time"
+                                    >Время заказа</label
+                                >
+                                <select
+                                    class="custom-select d-block w-100"
+                                    id="time"
+                                    required=""
+                                >
+                                    <option value="">
+                                        Выберите...
+                                    </option>
+                                    <option>Утро</option>
+                                    <option>День</option>
+                                    <option>Вечер</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Введите значение
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-15">
+                                <label for="delivery"
+                                    >Способ доставки</label
+                                >
+                                <select
+                                    class="custom-select d-block w-100"
+                                    id="time"
+                                    required=""
+                                >
+                                    <option value="">
+                                        Выберите...
+                                    </option>
+                                    <option>
+                                        Доставка до адреса
+                                    </option>
+                                    <option>Самовывоз</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Введите значение
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-15">
+                                <label for="payment"
+                                    >Способ оплаты</label
+                                >
+                                <select
+                                    class="custom-select d-block w-100"
+                                    id="payment"
+                                    required=""
+                                >
+                                    <option value="">
+                                        Выберите...
+                                    </option>
+                                    <option>
+                                        Банковской картой на сайте
+                                    </option>
+                                    <option>
+                                        Банковской картой при
+                                        получении
+                                    </option>
+                                    <option>
+                                        Наличными при получении
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Введите значение
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="fs-20">Адрес доставки:</h4>
+                        <div class="row">
+                            <div class="col-md-4 mb-15">
+                                <label for="street">Улица</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="street"
+                                    placeholder=""
+                                    value=""
+                                    required=""
+                                />
+                                <div class="invalid-feedback">
+                                    Введите корректные данные
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-15">
+                                <label for="house">Дом</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="house"
+                                    placeholder=""
+                                    value=""
+                                    required=""
+                                />
+                                <div class="invalid-feedback">
+                                    Введите корректные данные
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-15">
+                                <label for="entrance">Подъезд</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="entrance"
+                                    placeholder=""
+                                    value=""
+                                    required=""
+                                />
+                                <div class="invalid-feedback">
+                                    Введите корректные данные
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-15">
+                                <label for="floor">Этаж</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="floor"
+                                    placeholder=""
+                                    value=""
+                                    required=""
+                                />
+                                <div class="invalid-feedback">
+                                    Введите корректные данные
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-15">
+                                <label for="flat">Квартира</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="flat"
+                                    placeholder=""
+                                    value=""
+                                    required=""
+                                />
+                                <div class="invalid-feedback">
+                                    Введите корректные данные
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-15">
+                                <label for="intercom">Домофон</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="intercom"
+                                    placeholder=""
+                                    value=""
+                                    required=""
+                                />
+                                <div class="invalid-feedback">
+                                    Введите корректные данные
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-15">
+                                <label for="comments">Комментарии к заказу:</label>
+                                <textarea class="form-control" 
+                                placeholder="Ваши комментарии..." 
+                                class="form-control"
+                                id="comments"
+                                value=""
+                                required=""
+                                ></textarea>
+                                <div class="invalid-feedback">
+                                    Введите корректные данные
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="main__order__container cart vh-100 col-3">
+        <div
+            class="main__order h-100 d-flex justify-content-between flex-column"
+        >
+            <div
+                class="main__order__header d-flex justify-content-between pt-20 px-20"
+            >
+                <div class="cart-title">
+                    <h3 class="fs-4">Мой заказ</h3>
+                </div>
+                <div class="cart-clear"></div>
+            </div>
+            <div
+                class="selected-items mt-20 flex-grow-1 d-flex flex-column overflow-auto"
+            ></div>
+            <div class="wrapper__finalCost px-20 d-none">
+                <div
+                    class="final-cost d-flex justify-content-between mb-20"
+                >
+                    <div class="fs-18">Итого:</div>
+                    <div class="final-price fs-24 fw-bold"></div>
+                </div>
+                <div
+                    class="wrapper__continue-btn d-flex justify-content-center mx-n20 px-20 py-20 border-top border-secondary"
+                >
+                    <a
+                        href="#"
+                        class="continue-btn btn w-100 px-50 py-15"
+                        >Продолжить</a
+                    >
+                </div>
+            </div>
+
+            <div
+                class="wrapper-placeholder top-0 d-flex flex-column justify-content-center"
+            >
+                <div
+                    class="cart-placeholder text-center text-black-50 fs-50"
+                >
+                    Выберите товары и добавьте их к заказу
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    <footer class="footer">
+        <a href="#" class="logo"> 
+            <img src="./Images/LOGO.png"/>
+        </a>
+        <a href="#" class="city">
+            <img class="arrow" src="./Images/NavigationArrow.png">
+            <span class="text">Нижний Новгород</span>  
+        </a>
+    </footer> 
+    <script src="./cart.js"></script>
+       
+</body>
+</html>

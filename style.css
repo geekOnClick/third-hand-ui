@@ -11,6 +11,9 @@
     margin: 0;
     padding: 0;
 }
+.disabled {
+    color: gray !important;
+}
 .menu {
     display: flex;
     align-items: flex-end;
@@ -33,12 +36,14 @@
 .icon {
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 .logo {
     display: flex;
 }
 .filters {
     display: flex;
+    padding-top: 2px;
 }
 .city {
     display: flex;
@@ -57,6 +62,13 @@
     color: white;
     text-decoration: none;
 }
+input[type='search'] {
+    color: black;
+    display: block;
+    width: 100%;
+    letter-spacing: 4px;
+    word-spacing: 20px;
+}
 .text {
     font-family: Raleway;
     font-size: 16px;
@@ -66,7 +78,15 @@
     cursor: pointer;
     text-decoration: none;
 }
-.nav {
+.search {
+    font-family: Raleway;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    cursor: auto;
+}
+.navigate {
     display: flex;
 }
 .lens {
@@ -84,9 +104,13 @@
     padding: 0px 200px;
 }
 .main {
-    margin-top: 100px;
+    margin-top: 50px;
+}
+.titleHeader {
+    text-align: center;
 }
 .section {
+    margin-top: 20px;
     display: grid;
     background: #fff;
     background: color(display-p3 1 1 1);
@@ -100,13 +124,23 @@
     display: flex;
     flex-direction: column;
 }
+.cardImg {
+    width: 290px;
+    height: 390px;
+}
+.down_cart {
+    position: relative;
+    padding: 15px;
+}
 .icon_cart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+.cartImage {
     width: 24px;
     height: 24px;
-    position: relative;
-    right: -250px;
-    top: -87px;
-    cursor: pointer;
 }
 .img {
     object-fit: fill;
@@ -155,13 +189,12 @@
     min-width: 50%;
     max-width: 100%;
     padding: 100px 200px;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
     gap: 80px;
     background: var(--Gray-1, #333);
     background: var(--Gray-1, color(display-p3 0.2 0.2 0.2));
 }
-.span {
+.old {
     color: var(--Gray-2, #4f4f4f);
     color: var(--Gray-2, color(display-p3 0.3098 0.3098 0.3098));
     font-family: Inter;
@@ -175,4 +208,11 @@
 }
 .price {
     margin-top: 16px;
+}
+.prices {
+    display: flex;
+    align-items: center;
+}
+.active {
+    fill: gray;
 }
