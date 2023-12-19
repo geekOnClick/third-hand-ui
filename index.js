@@ -9,6 +9,8 @@ const showMore = document.querySelector('.show-more');
 const loader = document.querySelector('#loader');
 const sortSelection = document.querySelector('.sort-select');
 
+const search = document.querySelector('#search');
+
 sortSelection.addEventListener('change', (data) => {
     const sortBy = data.target.value;
     
@@ -63,7 +65,20 @@ const renderItems = (items) => {
 
 getCards().then((res) => {
     loader?.remove();
-    renderItems(res.data);
+    if (res.data) {
+        renderItems(res.data);
+        
+        search.addEventListener('input', (event) => {
+            const searchInput = event.target.value;
+
+            if (searchInput) {
+                const filteredCards = res.data.filter((card) => card.title.includes(searchInput));
+                renderItems(filteredCards);
+            } else {
+                renderItems(res.data);
+            }
+        })
+    }
 });
 
 
