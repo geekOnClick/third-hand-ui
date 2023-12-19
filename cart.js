@@ -32,6 +32,8 @@ const renderCart = () => {
     wrapper.innerHTML = '';
     fullPrice = 0;
 
+
+
     if (mock.length) {
         mock.forEach((el) => {
             let price = el.price ? el.price : 0;
@@ -60,6 +62,7 @@ const renderCart = () => {
             const newElem = wrapper.children[wrapper.children.length - 1];
 
             newElem.querySelector('.clear-item').addEventListener('click', () => {
+                getCards().then((data) => console.log('DATA', data));
                 mock = mock.filter((item) => el.title !== item.title);
                 renderCart();
             });

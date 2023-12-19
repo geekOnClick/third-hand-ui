@@ -1,45 +1,23 @@
-let mock = [
-    {
-        image: './Images/pic.png',
-        oldPrice: 363,
-        price: 264,
-        title: 'Пальто демисезонное',
-        size: 'M',
-        quality: 'Приличное'
-    },
-    {
-        image: './Images/card2.jpg',
-        oldPrice: 471,
-        price: 332,
-        title: 'Шорты мужские',
-        size: 'XL',
-        quality: 'Хорошее'
-    },
-    {
-        image: './Images/card3.jpg',
-        oldPrice: 652,
-        price: 235,
-        title: 'Куртка женская',
-        size: 'X',
-        quality: 'Приличное'
-    }
-];
+import { getFavoriteCards } from './service.js';
+
+const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+const qualities = ['не фонтан', 'фонтан', 'потёртое', 'поношенное', 'немного пахнет', 'хорошее', 'приличное', 'с дырками'];
 
 const cardsSection = document.querySelector('.section');
 const cardTemplate = document.querySelector('#card').content;
 
-const renderFavourites = () => {
+const renderFavourites = (items) => {
     cardsSection.innerHTML = '';
 
-    mock.forEach((el) => {
+    items.forEach((el) => {
         const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
 
-        cardElement.querySelector('.cardImg').src = el.image;
+        cardElement.querySelector('.cardImg').src = el.image_url;
         cardElement.querySelector('.price').textContent = el.price + ' ₽';
-        cardElement.querySelector('.old').textContent = el.oldPrice;
+        cardElement.querySelector('.old').textContent = el.price + 2000;
         cardElement.querySelector('.title').textContent = el.title;
-        cardElement.querySelector('.size').textContent = 'Размер: ' + el.size;
-        cardElement.querySelector('.quality').textContent = 'Состояние: ' + el.quality;
+        cardElement.querySelector('.size').textContent = 'Размер: ' + sizes[Math.floor(Math.random() * sizes.length)];
+        cardElement.querySelector('.quality').textContent = 'Состояние: ' + qualities[Math.floor(Math.random() * qualities.length)];
 
         const likeBtn = cardElement.querySelector('.heart');
         const cartBtn = cardElement.querySelector('.icon_cart');
@@ -61,4 +39,6 @@ const renderFavourites = () => {
     });
 };
 
-renderFavourites();
+getFavoriteCards().then((res) => {
+    renderFavourites(res.data);
+});
