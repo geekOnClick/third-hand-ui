@@ -5,6 +5,7 @@ const qualities = ['не фонтан', 'фонтан', 'потёртое', 'п�
 
 const cardsSection = document.querySelector('.section');
 const cardTemplate = document.querySelector('#card').content;
+const loader = document.querySelector('#loader');
 
 const renderFavourites = (items) => {
     cardsSection.innerHTML = '';
@@ -40,5 +41,7 @@ const renderFavourites = (items) => {
 };
 
 getFavoriteCards().then((res) => {
-    renderFavourites(res.data);
+    console.log(res);
+    loader?.remove();
+    renderFavourites(res);
 });
