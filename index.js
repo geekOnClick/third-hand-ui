@@ -1,4 +1,4 @@
-import { getCards, getSortedCards, addToFavorites } from './service.js';
+import { getCards, getSortedCards, toggleFavorites } from './service.js';
 
 const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
 const qualities = ['не фонтан', 'фонтан', 'потёртое', 'поношенное', 'немного пахнет', 'хорошее', 'приличное', 'с дырками'];
@@ -6,7 +6,7 @@ const qualities = ['не фонтан', 'фонтан', 'потёртое', 'п�
 const cardsSection = document.querySelector('.section');
 const cardTemplate = document.querySelector('#card').content;
 const showMore = document.querySelector('.show-more');
-
+const loader = document.querySelector('#loader');
 const sortSelection = document.querySelector('.sort-select');
 
 sortSelection.addEventListener('change', (data) => {
@@ -34,10 +34,16 @@ const renderItems = (items) => {
         const likeBtn = cardElement.querySelector('.heart');
         const cartBtn = cardElement.querySelector('.icon_cart');
 
+        if (el.favorite) {
+            likeBtn.classList.add('active');
+        } else {
+            likeBtn.classList.remove('active');
+        }
+
         likeBtn.addEventListener('click', () => {
+            toggleFavorites(el.id);
             if (!likeBtn.classList.contains('active')) {
                 likeBtn.classList.add('active');
-                addToFavorites(el.id);
             } else {
                 likeBtn.classList.remove('active');
             }
@@ -56,6 +62,7 @@ const renderItems = (items) => {
 };
 
 getCards().then((res) => {
+    loader?.remove();
     renderItems(res.data);
 });
 

@@ -37,11 +37,11 @@ export async function getFavoriteCards(sortBy='views', orderBy='asc') {
 
     const cards = await res.json();
 
-    return cards;
+    return cards?.data?.filter((card) => card.favorite);
 } 
 
-export async function addToFavorites(productId) {
-    const url = `${SERVER_LINK}/api/v1/product/${productId}/favorite`
+export async function toggleFavorites(productId) {
+    const url = `${SERVER_LINK}/api/v1/product/${productId}/toggleFavorite`
     const res = await fetch(url, {
         method: 'GET',
         //   headers: {
@@ -49,9 +49,14 @@ export async function addToFavorites(productId) {
         //   }
     });
 
-    const cards = await res.json();
+    const result = await res.json();
 
-    return cards;
+    if (result.status !== 'done') {
+        alert('Ошибка');
+        return;
+    }
+
+    return result.status;
 } 
 
 
